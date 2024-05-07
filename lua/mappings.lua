@@ -7,10 +7,17 @@ local opts = { noremap = true, silent = true }
 -- split window
 map("n", "ss", ":split<Return>", opts)
 map("n", "sv", ":vsplit<Return>", opts)
+map("n", "<Leader>z", ":TZFocus<Return>", opts)
+map("n", "<Leader>a", ":TZAtaraxis<Return>", opts)
+
+-- True Zen shortcuts with C-w prefix
+map("n", "<C-w>f", ":TZFocus<cr>", opts)
+map("n", "<C-w>a", ":TZAtaraxis<cr>", opts)
+-- map("n", "<C-w>m", ":TZMinimalist<cr>", { desc = "Minimalist mode" })
 
 -- Resize window
-map("n", "<C-S-h>", "<C-w><")
-map("n", "<C-S-l>", "<C-w>>")
+map("n", "<C-S-h>", "<C-w><", opts)
+map("n", "<C-S-l>", "<C-w>>", opts)
 
 -- save file and quit
 map("n", "<Leader>w", ":update<Return>", opts)
@@ -55,6 +62,8 @@ map("n", "<C-->", "<C-w><", opts)
 -- taken from here https://neovim.io/doc/user/nvim_terminal_emulator.html#terminal-input
 
 -- :tnoremap <A-h> <C-\><C-N><C-w>h
+-- Navegar entre ventanas
+-- A = Alt = Option Key
 map("t", "<A-LEFT>", [[<C-\><C-N><C-w>h]], opts)
 
 -- :tnoremap <A-j> <C-\><C-N><C-w>j
@@ -90,16 +99,25 @@ map("n", "<A-UP>", "<C-w>k", opts)
 -- :nnoremap <A-l> <C-w>l
 map("n", "<A-RIGHT>", "<C-w>l", opts)
 
+-- Fix para terminales, no terminar el terminal con escape ya que trae problemas con algunos comandos (lazygit por ejemplo)
+-- ya que no quiero cerrar el terminal cada vez que presiono escae cuando quiero cerrar una ventana en lazygit
+map("t", "<S-Esc>", "<C-\\><C-n>", opts)
+--map("t", "<S-ESC>", function()
+--  local win = vim.api.nvim_get_current_win()
+--  vim.api.nvim_win_close(win, true)
+--end, { desc = "Terminal Close term in terminal mode" })
+
 -- Floaterm
 -- Esta siendo cargado en su configuracion de plugin
 -- map("n", "<F7>", "<CMD>FloatermNew<CR>", opts)
 map("n", "<leader>fl", ":FloatermNew --name=lazygit lazygit<cr>", opts)
-map("n", "<leader>fh", ":FloatermNew --name=htop htop<cr>", opts)
+-- map("n", "<leader>fh", ":FloatermNew --name=htop htop<cr>", opts)
 map("n", "<leader>fn", ":FloatermNew<cr>", opts)
 map("n", "<leader>fx", ":FloatermNext<cr>", opts)
 
 map("n", "<leader>ft", ":FloatermToggle<cr>", opts)
+-- map("n", "<leader>fh", ":FloatermHide!<cr>", opts)
 
-map("n", "<leader>fkc", ":FloatermKill<cr>", { desc = "Kill current Floaterm" })
-map("n", "<leader>fkl", ":FloatermKill lazygit<cr>", opts)
-map("n", "<leader>fkh", ":FloatermKill htop<cr>", opts)
+map("n", "<leader>fk", ":FloatermKill<cr>", { desc = "Kill current Floaterm" })
+-- map("n", "<leader>fkl", ":FloatermKill lazygit<cr>", opts)
+-- map("n", "<leader>fkh", ":FloatermKill htop<cr>", opts)
