@@ -101,7 +101,7 @@ map("n", "<A-RIGHT>", "<C-w>l", opts)
 
 -- Fix para terminales, no terminar el terminal con escape ya que trae problemas con algunos comandos (lazygit por ejemplo)
 -- ya que no quiero cerrar el terminal cada vez que presiono escae cuando quiero cerrar una ventana en lazygit
-map("t", "<S-Esc>", "<C-\\><C-n>", opts)
+map("t", "<A-Esc>", "<C-\\><C-n>", opts)
 --map("t", "<S-ESC>", function()
 --  local win = vim.api.nvim_get_current_win()
 --  vim.api.nvim_win_close(win, true)
