@@ -14,6 +14,10 @@ return {
     end,
   },
   {
+    "ggandor/leap.nvim",
+    event = 'VeryLazy'
+  },
+  {
     "voldikss/vim-floaterm",
     event = "VeryLazy",
     -- :hi FloatermBorder guibg=282A36

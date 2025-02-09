@@ -5,8 +5,8 @@ local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- split window
-map("n", "ss", ":split<Return>", opts)
-map("n", "sv", ":vsplit<Return>", opts)
+-- map("n", "ss", ":split<Return>", opts)
+-- map("n", "sv", ":vsplit<Return>", opts)
 map("n", "<Leader>z", ":TZFocus<Return>", opts)
 map("n", "<Leader>a", ":TZAtaraxis<Return>", opts)
 
@@ -121,3 +121,6 @@ map("n", "<leader>ft", ":FloatermToggle<cr>", opts)
 map("n", "<leader>fk", ":FloatermKill<cr>", { desc = "Kill current Floaterm" })
 -- map("n", "<leader>fkl", ":FloatermKill lazygit<cr>", opts)
 -- map("n", "<leader>fkh", ":FloatermKill htop<cr>", opts)
+
+map('n', '<C-f>', '<Plug>(leap-forward)', opts)
+
